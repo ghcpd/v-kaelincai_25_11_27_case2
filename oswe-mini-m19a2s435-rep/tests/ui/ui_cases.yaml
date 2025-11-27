@@ -1,0 +1,41 @@
+---
+- id: desktop_layout
+  title: Desktop layout (no overlap)
+  viewport: { width: 1440, height: 900 }
+  steps: [0]
+  expect:
+    - headerNotOverlapping: true
+    - submitVisible: true
+
+- id: laptop_13in
+  title: 13-inch laptop breakpoint
+  viewport: { width: 1280, height: 800 }
+  steps: [0,1,2]
+  expect:
+    - headerNotOverlapping: true
+    - ctaVisible: true
+
+- id: mobile_safari_cta
+  title: mobile Safari CTA visible
+  viewport: { width: 375, height: 812, isMobile: true }
+  steps: [1,2]
+  expect:
+    - ctaNotCoveredByFooter: true
+    - submitClickable: true
+
+- id: dark_mode_markdown
+  title: dark mode markdown sanitized
+  viewport: { width: 1440, height: 900 }
+  steps: [1]
+  expect:
+    - noRawHtmlRendered: true
+    - sanitized: true
+
+- id: keyboard_navigation
+  title: keyboard-only navigation across steps
+  viewport: { width: 1024, height: 768 }
+  steps: [0,1,2]
+  expect:
+    - tabOrderLogical: true
+    - focusVisible: true
+    - ctaActivatedByEnter: true

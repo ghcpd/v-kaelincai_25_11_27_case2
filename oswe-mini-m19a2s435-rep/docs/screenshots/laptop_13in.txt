@@ -1,0 +1,2 @@
+Placeholder screenshot: laptop_13in.png
+Run tests to generate actual screenshot at docs/screenshots/laptop_13in.png

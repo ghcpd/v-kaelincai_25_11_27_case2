@@ -1,0 +1,107 @@
+:root{
+  --header-height: 64px;
+  --footer-height: 72px;
+  --max-content-width: 1024px;
+}
+
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; color:#0f172a;background:#fff}
+
+.app-shell{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+.header{
+  height:var(--header-height);
+  background:linear-gradient(90deg,#0ea5e9,#0284c7);
+  color:white;
+  display:flex;
+  align-items:center;
+  padding:0 1rem;
+  position:sticky;
+  top:0;
+  z-index:40;
+}
+
+.content{
+  flex:1 0 auto;
+  padding:1rem;
+  padding-top: calc(var(--header-height) + 1rem); /* ensure content not overlapped by sticky header */
+  max-width:var(--max-content-width);
+  width:100%;
+  margin: 0 auto;
+}
+
+.footer{
+  height:var(--footer-height);
+  background: #0b1220;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:sticky;
+  bottom:0;
+  z-index:50;
+}
+
+.onboarding-panel{
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(2,6,23,0.12);
+  padding: 1rem;
+  min-height: 60vh;
+}
+
+.cta-row{
+  display:flex;
+  gap: .5rem;
+  align-items:center;
+}
+
+.primary-button{
+  background: #0ea5e9;
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Ensure CTA is visible on mobile when a sticky footer exists. Add safe area padding to the content bottom. */
+.content{ padding-bottom: calc(var(--footer-height) + env(safe-area-inset-bottom)); }
+
+/* For small viewports, ensure CTA is anchored above footer */
+.anchor-cta{
+  position:fixed; /* keep visible */
+  right: 1rem;
+  left: 1rem;
+  bottom: calc(var(--footer-height) + env(safe-area-inset-bottom) + 8px);
+  z-index:60;
+  display:flex;
+  justify-content:flex-end;
+}
+
+/* Desktop breakpoints */
+@media(min-width: 1280px){
+  :root{ --max-content-width: 1200px }
+  .content{ padding: 2rem }
+  .onboarding-panel{ display:flex; gap:1rem; }
+}
+
+/* 13-inch laptop mid-size layout (1280 width) specific tuning */
+@media(min-width: 1024px) and (max-width: 1440px){
+  .header{ height: var(--header-height); }
+  .onboarding-panel{ min-height: 68vh; }
+}
+
+/* Dark mode handling for Markdown */
+@media(prefers-color-scheme: dark){
+  body{ background: #071022; color:#e6eef3 }
+  .onboarding-panel{ background: #0b1220; color: #dbeafe }
+  .markdown-content{ color: #dbeafe }
+}
+
+/* Accessibility focus outlines */
+:focus{ outline: 3px solid #94a3b8; outline-offset: 2px }

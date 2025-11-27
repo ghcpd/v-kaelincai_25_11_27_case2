@@ -1,0 +1,123 @@
+[
+  {
+    "case": "desktop_layout",
+    "checks": [
+      {
+        "check": "headerNotOverlapping",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "laptop_13in",
+    "checks": [
+      {
+        "check": "headerNotOverlapping",
+        "pass": true
+      },
+      {
+        "check": "noRawHtmlRendered",
+        "pass": true
+      },
+      {
+        "check": "submitClickable",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "mobile_safari_cta",
+    "checks": [
+      {
+        "check": "headerNotOverlapping",
+        "pass": true
+      },
+      {
+        "check": "noRawHtmlRendered",
+        "pass": true
+      },
+      {
+        "check": "ctaNotCoveredByFooter",
+        "pass": true
+      },
+      {
+        "check": "submitClickable",
+        "pass": true
+      },
+      {
+        "check": "ctaNotCoveredByFooter",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "dark_mode_markdown",
+    "checks": [
+      {
+        "check": "headerNotOverlapping",
+        "pass": true
+      },
+      {
+        "check": "noRawHtmlRendered",
+        "pass": true
+      },
+      {
+        "check": "darkModeDetected",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "keyboard_navigation",
+    "checks": [
+      {
+        "check": "headerNotOverlapping",
+        "pass": true
+      },
+      {
+        "check": "tabOrderLogical",
+        "pass": true
+      },
+      {
+        "check": "focusVisible",
+        "pass": true
+      },
+      {
+        "check": "ctaActivatedByEnter",
+        "pass": true
+      },
+      {
+        "check": "noRawHtmlRendered",
+        "pass": true
+      },
+      {
+        "check": "tabOrderLogical",
+        "pass": true
+      },
+      {
+        "check": "focusVisible",
+        "pass": true
+      },
+      {
+        "check": "ctaActivatedByEnter",
+        "pass": true
+      },
+      {
+        "check": "submitClickable",
+        "pass": true
+      },
+      {
+        "check": "tabOrderLogical",
+        "pass": true
+      },
+      {
+        "check": "focusVisible",
+        "pass": true
+      },
+      {
+        "check": "ctaActivatedByEnter",
+        "pass": true
+      }
+    ]
+  }
+]

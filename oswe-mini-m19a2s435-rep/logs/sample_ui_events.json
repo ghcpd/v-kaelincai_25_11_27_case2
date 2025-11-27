@@ -1,0 +1,5 @@
+[
+  {"sessionId":"sid_abc123","timestamp":"2025-11-27T12:00:00Z","eventType":"page.load","details":{"step":0}},
+  {"sessionId":"sid_abc123","timestamp":"2025-11-27T12:00:05Z","eventType":"cta.click","details":{"name":"next","step":0}},
+  {"sessionId":"sid_abc123","timestamp":"2025-11-27T12:00:10Z","eventType":"form.submit","details":{"success":true}}
+]
