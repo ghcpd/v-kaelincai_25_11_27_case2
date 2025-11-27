@@ -1,0 +1,280 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UI Event Logging Schema",
+  "description": "Structured UI interaction logs with session/request ID tracking (PII redacted)",
+  "type": "object",
+  "properties": {
+    "session": {
+      "type": "object",
+      "description": "Session metadata",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+          "description": "Unique session UUID (v4), no PII"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 session start timestamp"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 session end timestamp"
+        },
+        "userAgent": {
+          "type": "string",
+          "description": "Browser user agent (no device ID/serial)"
+        },
+        "viewport": {
+          "type": "object",
+          "properties": {
+            "width": { "type": "integer", "minimum": 0 },
+            "height": { "type": "integer", "minimum": 0 },
+            "deviceType": {
+              "type": "string",
+              "enum": ["mobile", "tablet", "desktop"],
+              "description": "Inferred viewport category"
+            }
+          },
+          "required": ["width", "height", "deviceType"]
+        }
+      },
+      "required": ["id", "startTime", "userAgent", "viewport"]
+    },
+    "events": {
+      "type": "array",
+      "description": "List of UI interaction events",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Event timestamp (ISO 8601)"
+          },
+          "requestId": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{16}$",
+            "description": "Unique request ID (hex, no PII)"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "page_load",
+              "navigation",
+              "form_input",
+              "form_submit",
+              "button_click",
+              "accessibility_focus",
+              "keyboard_navigation",
+              "scroll",
+              "resize",
+              "markdown_render",
+              "theme_change",
+              "error"
+            ],
+            "description": "Event category"
+          },
+          "target": {
+            "type": "object",
+            "properties": {
+              "componentName": {
+                "type": "string",
+                "description": "React component name (e.g., OnboardingWizard, HandbookReader)"
+              },
+              "elementId": {
+                "type": "string",
+                "description": "HTML element ID (no user data)"
+              },
+              "elementClass": {
+                "type": "string",
+                "description": "HTML class name"
+              }
+            },
+            "required": ["componentName"]
+          },
+          "action": {
+            "type": "object",
+            "description": "Action-specific details",
+            "properties": {
+              "step": {
+                "type": "string",
+                "enum": ["profile", "handbook", "equipment", "confirmation"],
+                "description": "Current onboarding step"
+              },
+              "direction": {
+                "type": "string",
+                "enum": ["next", "prev"],
+                "description": "Navigation direction"
+              },
+              "markdownTheme": {
+                "type": "string",
+                "enum": ["light", "dark"],
+                "description": "Active theme during Markdown render"
+              },
+              "keyCode": {
+                "type": "string",
+                "description": "Keyboard key (e.g., Enter, ArrowRight, Tab)"
+              },
+              "focusedElement": {
+                "type": "string",
+                "description": "Element that received focus"
+              },
+              "renderTime": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Markdown render duration (ms)"
+              }
+            }
+          },
+          "metrics": {
+            "type": "object",
+            "description": "Performance and accessibility metrics",
+            "properties": {
+              "layoutShift": {
+                "type": "number",
+                "description": "Cumulative Layout Shift (CLS) since last paint"
+              },
+              "accessibilityViolations": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Count of ARIA/accessibility issues detected"
+              },
+              "ctaVisible": {
+                "type": "boolean",
+                "description": "Is primary CTA visible in viewport?"
+              },
+              "headerOverlap": {
+                "type": "boolean",
+                "description": "Does header overlap content?"
+              }
+            }
+          },
+          "status": {
+            "type": "string",
+            "enum": ["success", "warning", "error"],
+            "description": "Event outcome status"
+          },
+          "errorDetails": {
+            "type": "object",
+            "properties": {
+              "message": { "type": "string" },
+              "code": { "type": "string" }
+            },
+            "description": "Error info if status=error (no stack traces with PII)"
+          }
+        },
+        "required": ["timestamp", "requestId", "type", "target", "status"]
+      }
+    },
+    "summary": {
+      "type": "object",
+      "description": "Session summary statistics",
+      "properties": {
+        "totalEvents": { "type": "integer", "minimum": 0 },
+        "stepsCompleted": { "type": "array", "items": { "type": "string" } },
+        "errorCount": { "type": "integer", "minimum": 0 },
+        "accessibilityScore": { "type": "number", "minimum": 0, "maximum": 100 },
+        "layoutStabilityScore": { "type": "number", "minimum": 0, "maximum": 100 },
+        "ctaVisibilityRate": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    }
+  },
+  "required": ["session", "events", "summary"],
+  "examples": [
+    {
+      "session": {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "startTime": "2025-01-15T09:00:00Z",
+        "endTime": "2025-01-15T09:15:30Z",
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X)",
+        "viewport": {
+          "width": 375,
+          "height": 812,
+          "deviceType": "mobile"
+        }
+      },
+      "events": [
+        {
+          "timestamp": "2025-01-15T09:00:01Z",
+          "requestId": "a1b2c3d4e5f6g7h8",
+          "type": "page_load",
+          "target": {
+            "componentName": "OnboardingWizard",
+            "elementId": "wizard-root"
+          },
+          "action": {
+            "step": "profile",
+            "renderTime": 250
+          },
+          "metrics": {
+            "ctaVisible": true,
+            "headerOverlap": false,
+            "accessibilityViolations": 0
+          },
+          "status": "success"
+        },
+        {
+          "timestamp": "2025-01-15T09:00:15Z",
+          "requestId": "b2c3d4e5f6g7h8i9",
+          "type": "button_click",
+          "target": {
+            "componentName": "OnboardingWizard",
+            "elementId": "submit-button",
+            "elementClass": "btn-primary"
+          },
+          "action": {
+            "step": "profile",
+            "direction": "next"
+          },
+          "metrics": {
+            "ctaVisible": true
+          },
+          "status": "success"
+        },
+        {
+          "timestamp": "2025-01-15T09:00:45Z",
+          "requestId": "c3d4e5f6g7h8i9j0",
+          "type": "markdown_render",
+          "target": {
+            "componentName": "HandbookReader"
+          },
+          "action": {
+            "step": "handbook",
+            "markdownTheme": "dark",
+            "renderTime": 180
+          },
+          "metrics": {
+            "accessibilityViolations": 0
+          },
+          "status": "success"
+        },
+        {
+          "timestamp": "2025-01-15T09:01:30Z",
+          "requestId": "d4e5f6g7h8i9j0k1",
+          "type": "keyboard_navigation",
+          "target": {
+            "componentName": "OnboardingWizard",
+            "elementClass": "wizard-nav"
+          },
+          "action": {
+            "step": "handbook",
+            "keyCode": "Tab",
+            "focusedElement": "next-button"
+          },
+          "status": "success"
+        }
+      ],
+      "summary": {
+        "totalEvents": 4,
+        "stepsCompleted": ["profile", "handbook"],
+        "errorCount": 0,
+        "accessibilityScore": 95,
+        "layoutStabilityScore": 98,
+        "ctaVisibilityRate": 1.0
+      }
+    }
+  ]
+}

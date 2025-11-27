@@ -1,0 +1,54 @@
+{
+  "profile": {
+    "id": "emp-1001",
+    "firstName": "Alice",
+    "lastName": "Johnson",
+    "email": "alice.johnson@example.com",
+    "department": "Engineering",
+    "startDate": "2025-01-15",
+    "manager": "Bob Smith",
+    "title": "Senior Software Engineer"
+  },
+  "handbook": {
+    "title": "Employee Handbook - Welcome!",
+    "sections": [
+      {
+        "id": "intro",
+        "title": "Introduction",
+        "content": "# Welcome to Our Company!\n\nWe're excited to have you on board. This handbook covers essential policies and procedures.\n\n## Company Values\n- **Innovation**: We embrace creativity and new ideas\n- **Integrity**: We act with honesty and transparency\n- **Collaboration**: We work together across teams\n\nPlease review this carefully and reach out to HR with any questions."
+      },
+      {
+        "id": "policies",
+        "title": "Key Policies",
+        "content": "## Work Hours & Flexibility\n\nOur standard office hours are 9 AM to 5 PM. We offer flexible arrangements:\n\n- **Remote Work**: Approved on Tuesdays–Thursdays\n- **Core Hours**: 10 AM–3 PM (all team members present)\n- **Flexible Start/End**: Within 8 AM–6 PM window\n\n### Time Off\n\n| Type | Annual Allowance |\n|------|------------------|\n| PTO | 20 days |\n| Sick Leave | 10 days |\n| Holidays | 10 days |\n\n> **Note**: Policies are subject to local labor laws and company discretion."
+      },
+      {
+        "id": "benefits",
+        "title": "Benefits & Support",
+        "content": "## Health & Wellness\n\nWe provide comprehensive health coverage:\n\n1. **Medical Insurance**: HMO and PPO options\n2. **Dental & Vision**: Preventive care covered\n3. **Mental Health**: Free counseling and wellness programs\n4. **Fitness**: Company gym membership subsidy\n\n### Professional Development\n\nInvest in your growth with:\n- Annual training budget ($2,000)\n- Conference attendance support\n- Internal mentorship program\n- Tuition reimbursement (conditional)\n\n**Contact HR for details and enrollment.**"
+      }
+    ]
+  },
+  "steps": [
+    {
+      "id": "profile",
+      "title": "Profile Verification",
+      "description": "Confirm your personal and employment information"
+    },
+    {
+      "id": "handbook",
+      "title": "Review Handbook",
+      "description": "Read and acknowledge company policies"
+    },
+    {
+      "id": "equipment",
+      "title": "Equipment & Access",
+      "description": "Configure IT setup and access requirements"
+    },
+    {
+      "id": "confirmation",
+      "title": "Confirmation",
+      "description": "Review and submit your onboarding"
+    }
+  ]
+}

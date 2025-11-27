@@ -1,0 +1,241 @@
+# UI Integration Test Scenarios
+# Responsive_Onboarding_UI_v2 Test Cases
+
+scenarios:
+  - id: 1
+    name: "Desktop Layout - Header No Overlap"
+    description: "Verify onboarding wizard header does not overlap with form content on desktop (1920px+)"
+    viewport:
+      width: 1920
+      height: 1080
+    steps:
+      - action: "load"
+        target: "/"
+        description: "Navigate to onboarding portal"
+      - action: "verify"
+        target: ".wizard-header"
+        expectation: "header position bottom < content position top + 20px threshold"
+      - action: "verify"
+        target: "#submit-button"
+        expectation: "button visible and in viewport"
+      - action: "screenshot"
+        path: "docs/screenshots/1-desktop-layout.png"
+    expectedOutcome:
+      - "No header overlap detected"
+      - "CTA visible and clickable"
+      - "Layout stable (CLS < 0.1)"
+    metrics:
+      - "headerOverlap: false"
+      - "ctaVisible: true"
+      - "layoutShift: < 0.1"
+      - "accessibilityScore: >= 90"
+
+  - id: 2
+    name: "13-inch Laptop Breakpoint"
+    description: "Verify responsive layout works correctly at 1280px (13-inch laptop)"
+    viewport:
+      width: 1280
+      height: 800
+    steps:
+      - action: "load"
+        target: "/"
+        description: "Navigate to onboarding portal"
+      - action: "verify"
+        target: ".wizard-header"
+        expectation: "sticky header with proper z-index, no overlap"
+      - action: "verify"
+        target: ".wizard-content"
+        expectation: "content has proper margin-top and padding-bottom"
+      - action: "verify"
+        target: "#submit-button"
+        expectation: "CTA visible in viewport"
+      - action: "screenshot"
+        path: "docs/screenshots/2-laptop-13inch.png"
+    expectedOutcome:
+      - "Responsive grid adjusts for 1280px"
+      - "Header remains sticky without covering content"
+      - "CTA stays visible"
+    metrics:
+      - "headerOverlap: false"
+      - "ctaVisible: true"
+      - "viewport: 1280x800"
+
+  - id: 3
+    name: "Mobile Safari CTA Visibility"
+    description: "Verify Submit button is visible and clickable on iPhone 12 (375px) with safe area"
+    viewport:
+      width: 375
+      height: 812
+    userAgent: "iPhone 12"
+    safeAreaInsets:
+      top: 47
+      bottom: 34
+    steps:
+      - action: "load"
+        target: "/"
+        description: "Navigate on mobile Safari"
+      - action: "verify"
+        target: ".wizard-footer"
+        expectation: "fixed footer with safe area padding (bottom: 34px)"
+      - action: "verify"
+        target: "#submit-button"
+        expectation: "visible in viewport, not covered by keyboard/notch"
+      - action: "scroll"
+        target: ".wizard-content"
+        direction: "down"
+        distance: 500
+      - action: "verify"
+        target: "#submit-button"
+        expectation: "CTA still visible after scroll"
+      - action: "click"
+        target: "#submit-button"
+        expectation: "navigation to next step succeeds"
+      - action: "screenshot"
+        path: "docs/screenshots/3-mobile-safari-cta.png"
+    expectedOutcome:
+      - "CTA visible at all times (fixed positioning)"
+      - "Safe area respected (padding-bottom applied)"
+      - "CTA clickable without page scroll"
+      - "No hidden elements due to sticky footer"
+    metrics:
+      - "ctaVisible: true (100%)"
+      - "footerObstructed: false"
+      - "safeAreaApplied: true"
+
+  - id: 4
+    name: "Dark Mode Markdown Rendering"
+    description: "Verify Markdown renders correctly in dark mode with proper styling/sanitization"
+    viewport:
+      width: 1024
+      height: 768
+    theme: "dark"
+    steps:
+      - action: "load"
+        target: "/"
+      - action: "navigate"
+        target: "#submit-button"
+        count: 2
+        description: "Go to handbook step"
+      - action: "click"
+        target: "button:text('Dark')"
+        description: "Toggle dark mode"
+      - action: "verify"
+        target: ".markdown-content"
+        expectation: "rendered HTML (not raw), no unescaped tags"
+      - action: "verify"
+        target: ".markdown-content h2"
+        expectation: "heading color is not rgb(0,0,0), visible in dark mode"
+      - action: "verify"
+        target: ".markdown-content code"
+        expectation: "inline code has contrast background (bg-slate-800)"
+      - action: "verify"
+        target: ".markdown-content table"
+        expectation: "table styled with dark borders and cell colors"
+      - action: "screenshot"
+        path: "docs/screenshots/4-dark-mode-markdown.png"
+    expectedOutcome:
+      - "Markdown converted to HTML (headers, bold, italic, links, tables)"
+      - "No raw HTML visible in UI"
+      - "Dark mode colors applied (text: #d1d5db, bg: #374151)"
+      - "XSS prevention: no script tags or event handlers"
+      - "Typography hierarchy clear"
+    metrics:
+      - "renderTime: < 500ms"
+      - "markdownTheme: dark"
+      - "accessibilityViolations: 0"
+      - "xssAttempts: 0"
+
+  - id: 5
+    name: "Keyboard Navigation & Accessibility"
+    description: "Verify all onboarding steps accessible via Tab/Arrow keys with focus management"
+    viewport:
+      width: 1024
+      height: 768
+    steps:
+      - action: "load"
+        target: "/"
+      - action: "keyboard"
+        key: "Tab"
+        expectation: "focus moves to first interactive element"
+      - action: "keyboard"
+        key: "ArrowRight"
+        expectation: "navigate to next step"
+      - action: "verify"
+        target: ".wizard-header p"
+        expectation: "step text shows 'Step 2'"
+      - action: "keyboard"
+        key: "ArrowLeft"
+        expectation: "navigate back to previous step"
+      - action: "verify"
+        target: ".wizard-header p"
+        expectation: "step text shows 'Step 1'"
+      - action: "verify"
+        target: "button:focus"
+        expectation: "visible focus indicator (outline: 2px solid #3b82f6)"
+      - action: "verify"
+        target: "[role='progressbar']"
+        count: 4
+        expectation: "progress indicators have aria-valuenow and aria-label"
+      - action: "verify"
+        target: "[role='main']"
+        expectation: "main content region has aria-label"
+      - action: "screenshot"
+        path: "docs/screenshots/5-keyboard-navigation.png"
+    expectedOutcome:
+      - "All steps reachable via keyboard"
+      - "Focus visible on all interactive elements"
+      - "ARIA labels present (role, aria-label, aria-pressed)"
+      - "Focus order logical (top-to-bottom, left-to-right)"
+      - "No keyboard trap"
+    metrics:
+      - "keyboardAccessible: true"
+      - "focusIndicators: visible"
+      - "ariaLabels: complete"
+      - "accessibilityScore: >= 95"
+
+# Test execution parameters
+testConfig:
+  baseURL: "http://localhost:5173"
+  headless: true
+  captureScreenshots: true
+  screenshotPath: "docs/screenshots"
+  generateReport: true
+  reportPath: "tests/results.json"
+  timeout: 30000
+  retries: 1
+  browsers:
+    - chromium
+    - webkit # for Safari tests
+  viewportDevices:
+    - name: "Desktop"
+      viewport: { width: 1920, height: 1080 }
+    - name: "Laptop 13\""
+      viewport: { width: 1280, height: 800 }
+    - name: "Mobile"
+      viewport: { width: 375, height: 812 }
+
+# Acceptance criteria
+acceptance:
+  - scenario: 1
+    criteria:
+      - "headerOverlap == false"
+      - "ctaVisible == true"
+      - "layoutShift < 0.1"
+  - scenario: 2
+    criteria:
+      - "headerOverlap == false"
+      - "viewport == 1280x800"
+  - scenario: 3
+    criteria:
+      - "ctaVisibility == 100%"
+      - "safeAreaApplied == true"
+  - scenario: 4
+    criteria:
+      - "markdownRendered == true"
+      - "xssPrevented == true"
+      - "darkModeContrast == true"
+  - scenario: 5
+    criteria:
+      - "keyboardAccessible == true"
+      - "focusIndicators == visible"
+      - "accessibilityScore >= 90"
