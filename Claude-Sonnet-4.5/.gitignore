@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+build/
+.vite/
+
+# Test artifacts
+playwright-report/
+test-results/
+playwright/.cache/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Keep screenshot directory structure but ignore generated files
+# docs/screenshots/*.png
+# (Uncomment above to ignore generated screenshots in git)
+
+# Temporary files
+*.tmp
+.cache/

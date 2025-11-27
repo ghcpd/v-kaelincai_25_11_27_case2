@@ -1,0 +1,151 @@
+test_cases:
+  - id: 1
+    name: "Desktop Layout - No Overlap"
+    description: "Verify that the onboarding wizard renders correctly on desktop without header/content overlap"
+    viewport:
+      width: 1920
+      height: 1080
+      device_type: "desktop"
+    steps:
+      - action: "navigate"
+        target: "/"
+      - action: "wait_for_selector"
+        selector: '[role="region"][aria-label="Onboarding wizard"]'
+      - action: "screenshot"
+        filename: "desktop-layout.png"
+      - action: "verify_no_overlap"
+        elements:
+          - "header"
+          - "main content"
+          - "step indicator"
+    expected_outcomes:
+      - "Header and step indicator are visible"
+      - "Content area has proper spacing"
+      - "No elements overlap"
+      - "Navigation buttons are clearly visible"
+    
+  - id: 2
+    name: "13-inch Laptop Breakpoint - No Overlap"
+    description: "Test that layout adapts properly on 13-inch laptop viewport with no overlapping panels"
+    viewport:
+      width: 1280
+      height: 800
+      device_type: "laptop"
+    steps:
+      - action: "navigate"
+        target: "/"
+      - action: "wait_for_selector"
+        selector: '[role="region"][aria-label="Onboarding wizard"]'
+      - action: "screenshot"
+        filename: "laptop-13-layout.png"
+      - action: "verify_responsive_layout"
+        breakpoint: "laptop-13"
+    expected_outcomes:
+      - "Responsive breakpoints applied correctly"
+      - "No header/content overlap"
+      - "Step indicator adapts to available space"
+      - "All content remains readable and accessible"
+
+  - id: 3
+    name: "Mobile Safari - Visible CTA"
+    description: "Ensure Submit button and primary CTAs are visible and not hidden by sticky footer on mobile Safari"
+    viewport:
+      width: 390
+      height: 844
+      device_type: "mobile"
+    steps:
+      - action: "navigate"
+        target: "/"
+      - action: "scroll"
+        direction: "bottom"
+      - action: "wait_for_selector"
+        selector: '[data-testid="next-button"]'
+      - action: "verify_element_visible"
+        selector: '[data-testid="next-button"]'
+      - action: "screenshot"
+        filename: "mobile-safari-cta-visible.png"
+      - action: "navigate_to_step"
+        step: 4
+      - action: "verify_element_visible"
+        selector: '[data-testid="submit-button"]'
+      - action: "screenshot"
+        filename: "mobile-safari-submit-visible.png"
+    expected_outcomes:
+      - "Next button is visible and clickable"
+      - "Submit button is not covered by sticky footer"
+      - "safe-area-inset padding applied"
+      - "CTAs remain accessible with keyboard"
+
+  - id: 4
+    name: "Dark Mode Markdown Rendering"
+    description: "Verify Markdown content renders properly in dark mode without raw HTML display"
+    viewport:
+      width: 1280
+      height: 800
+      device_type: "laptop"
+    steps:
+      - action: "navigate"
+        target: "/"
+      - action: "toggle_theme"
+        theme: "dark"
+      - action: "navigate_to_step"
+        step: 3
+      - action: "wait_for_selector"
+        selector: '.markdown-content.dark'
+      - action: "screenshot"
+        filename: "dark-mode-markdown.png"
+      - action: "verify_no_raw_html"
+        selector: '.markdown-content'
+      - action: "verify_theme_styles"
+        theme: "dark"
+    expected_outcomes:
+      - "Markdown renders with proper dark mode styles"
+      - "No raw HTML tags visible to user"
+      - "HTML content is properly sanitized"
+      - "Theme-aware colors applied correctly"
+      - "highlight-box div styled for dark mode"
+
+  - id: 5
+    name: "Keyboard Navigation"
+    description: "Test accessibility with keyboard-only navigation through all wizard steps"
+    viewport:
+      width: 1920
+      height: 1080
+      device_type: "desktop"
+    steps:
+      - action: "navigate"
+        target: "/"
+      - action: "keyboard_press"
+        key: "Tab"
+        repeat: 1
+      - action: "verify_focus"
+        element: "theme toggle button"
+      - action: "keyboard_press"
+        key: "Tab"
+        repeat: 3
+      - action: "verify_focus"
+        element: "next button"
+      - action: "keyboard_press"
+        key: "Enter"
+      - action: "verify_step_change"
+        expected_step: 2
+      - action: "screenshot"
+        filename: "keyboard-navigation.png"
+      - action: "navigate_to_step"
+        step: 3
+      - action: "keyboard_press"
+        key: "Tab"
+        repeat: 5
+      - action: "verify_focus"
+        element: "handbook acknowledge checkbox"
+      - action: "keyboard_press"
+        key: "Space"
+      - action: "verify_checkbox_checked"
+        selector: '[data-testid="handbook-acknowledge"]'
+    expected_outcomes:
+      - "All interactive elements reachable via Tab"
+      - "Focus indicators clearly visible"
+      - "Enter/Space activate buttons and checkboxes"
+      - "Skip link available at top"
+      - "ARIA labels present for screen readers"
+      - "Focus order follows logical flow"

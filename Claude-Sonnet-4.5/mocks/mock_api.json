@@ -1,0 +1,55 @@
+{
+  "profile": {
+    "id": "emp-001",
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "jane.doe@company.com",
+    "department": "Engineering",
+    "startDate": "2025-12-01",
+    "manager": "John Smith"
+  },
+  "handbook": {
+    "title": "Employee Handbook",
+    "version": "2.1",
+    "lastUpdated": "2025-11-01",
+    "sections": [
+      {
+        "id": "welcome",
+        "title": "Welcome",
+        "content": "# Welcome to the Company\n\nWe're excited to have you join our team! This handbook contains important information about our policies, culture, and expectations.\n\n## Getting Started\n\n- Review all sections carefully\n- Complete your profile information\n- Set up your equipment\n- Attend orientation sessions\n\n**Important**: Please acknowledge that you've read and understood this handbook."
+      },
+      {
+        "id": "code-of-conduct",
+        "title": "Code of Conduct",
+        "content": "## Code of Conduct\n\n### Our Values\n\n1. **Integrity**: Act with honesty and transparency\n2. **Respect**: Treat everyone with dignity\n3. **Excellence**: Strive for quality in all work\n4. **Collaboration**: Work together effectively\n\n### Expected Behavior\n\n- Maintain professional communication\n- Respect diverse perspectives\n- Follow security protocols\n- Report concerns promptly\n\n<div class=\"highlight-box\">\n<strong>Note:</strong> Violations may result in disciplinary action.\n</div>"
+      },
+      {
+        "id": "benefits",
+        "title": "Benefits & Perks",
+        "content": "## Benefits Package\n\n### Health & Wellness\n\n- Medical, dental, and vision insurance\n- Mental health support\n- Gym membership reimbursement\n- Wellness programs\n\n### Time Off\n\n- 20 days PTO annually\n- 10 paid holidays\n- Sick leave\n- Parental leave\n\n### Professional Development\n\n- Annual learning budget: **$2,000**\n- Conference attendance\n- Internal training programs\n- Mentorship opportunities"
+      }
+    ]
+  },
+  "steps": [
+    {
+      "id": 1,
+      "title": "Personal Information",
+      "description": "Confirm your basic details"
+    },
+    {
+      "id": 2,
+      "title": "Department & Role",
+      "description": "Review your assignment"
+    },
+    {
+      "id": 3,
+      "title": "Handbook Review",
+      "description": "Read and acknowledge policies"
+    },
+    {
+      "id": 4,
+      "title": "Complete Setup",
+      "description": "Finalize onboarding"
+    }
+  ]
+}

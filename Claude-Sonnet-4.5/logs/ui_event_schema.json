@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UI Event Log Schema",
+  "description": "Structured logging schema for UI interactions with session tracking (PII redacted)",
+  "type": "object",
+  "required": ["sessionId", "requestId", "timestamp", "eventType", "component", "action"],
+  "properties": {
+    "sessionId": {
+      "type": "string",
+      "description": "Unique identifier for the user session (UUID v4)",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+      "example": "550e8400-e29b-41d4-a716-446655440000"
+    },
+    "requestId": {
+      "type": "string",
+      "description": "Unique identifier for this specific event/request (UUID v4)",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+      "example": "7c9e6679-7425-40de-944b-e07fc1f90ae7"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of the event",
+      "example": "2025-11-27T10:30:45.123Z"
+    },
+    "eventType": {
+      "type": "string",
+      "enum": ["page_load", "user_interaction", "navigation", "form_submit", "error", "performance"],
+      "description": "Category of the UI event"
+    },
+    "component": {
+      "type": "string",
+      "description": "Component or page where the event occurred",
+      "example": "OnboardingWizard"
+    },
+    "action": {
+      "type": "string",
+      "description": "Specific action performed",
+      "example": "step_navigation"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional context (must not contain PII)",
+      "properties": {
+        "viewport": {
+          "type": "object",
+          "properties": {
+            "width": {"type": "number"},
+            "height": {"type": "number"},
+            "deviceType": {"type": "string", "enum": ["desktop", "laptop", "tablet", "mobile"]}
+          }
+        },
+        "stepId": {"type": "number"},
+        "success": {"type": "boolean"},
+        "errorCode": {"type": "string"},
+        "duration": {"type": "number", "description": "Duration in milliseconds"},
+        "theme": {"type": "string", "enum": ["light", "dark"]}
+      }
+    }
+  },
+  "examples": [
+    {
+      "sessionId": "550e8400-e29b-41d4-a716-446655440000",
+      "requestId": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+      "timestamp": "2025-11-27T10:30:45.123Z",
+      "eventType": "page_load",
+      "component": "OnboardingWizard",
+      "action": "initial_render",
+      "metadata": {
+        "viewport": {"width": 1280, "height": 800, "deviceType": "laptop"},
+        "stepId": 1,
+        "theme": "light"
+      }
+    },
+    {
+      "sessionId": "550e8400-e29b-41d4-a716-446655440000",
+      "requestId": "8d0f7780-8536-51ef-b827-f18gd2g01bf8",
+      "timestamp": "2025-11-27T10:31:12.456Z",
+      "eventType": "user_interaction",
+      "component": "OnboardingWizard",
+      "action": "cta_click",
+      "metadata": {
+        "viewport": {"width": 390, "height": 844, "deviceType": "mobile"},
+        "stepId": 3,
+        "success": true
+      }
+    },
+    {
+      "sessionId": "550e8400-e29b-41d4-a716-446655440000",
+      "requestId": "9e1g8891-9647-62fg-c938-g29he3h12cg9",
+      "timestamp": "2025-11-27T10:31:45.789Z",
+      "eventType": "form_submit",
+      "component": "OnboardingWizard",
+      "action": "complete_onboarding",
+      "metadata": {
+        "viewport": {"width": 1920, "height": 1080, "deviceType": "desktop"},
+        "stepId": 4,
+        "success": true,
+        "duration": 185000
+      }
+    }
+  ]
+}
