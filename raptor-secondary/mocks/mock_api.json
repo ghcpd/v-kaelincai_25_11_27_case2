@@ -1,0 +1,25 @@
+{
+  "profile": {
+    "id": "emp-12345",
+    "name": "Jane Doe",
+    "role": "Product Manager"
+  },
+  "steps": [
+    {
+      "id": "welcome",
+      "title": "Welcome",
+      "contentMarkdown": "## Welcome, {{name}}!\n\nWe're excited to have you on board. This wizard will guide you through key onboarding tasks."
+    },
+    {
+      "id": "policies",
+      "title": "Policies",
+      "contentMarkdown": "### Code of Conduct\n\n- Review and acknowledge the Code of Conduct.\n- Complete security awareness training.\n\n> Tip: You can navigate with the keyboard (Tab/Shift+Tab, Arrow keys)."
+    },
+    {
+      "id": "handbook",
+      "title": "Handbook",
+      "contentMarkdown": "<h3>Handbook Highlights</h3>\n<p>Please review the <a href='https://example.com/handbook'>Employee Handbook</a>.</p>\n\n```js\nconsole.log('Welcome to the team!')\n```"
+    }
+  ],
+  "handbookMarkdown": "# Employee Handbook\n\n<strong>HTML rendering test</strong> and <em>dark mode</em> check.\n\n<ul><li>Benefits</li><li>Time off</li></ul>\n\n<div>Safe HTML block</div>\n"
+}

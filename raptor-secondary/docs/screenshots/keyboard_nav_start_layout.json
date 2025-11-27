@@ -1,0 +1,24 @@
+{
+  "headerBox": {
+    "x": 116,
+    "y": 0,
+    "width": 1048,
+    "height": 72
+  },
+  "contentBox": {
+    "x": 210,
+    "y": 151,
+    "width": 860,
+    "height": 263.90625
+  },
+  "ctaBox": {
+    "x": 116,
+    "y": 729,
+    "width": 1048,
+    "height": 71
+  },
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  }
+}

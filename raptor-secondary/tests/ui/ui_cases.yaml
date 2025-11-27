@@ -1,0 +1,53 @@
+cases:
+  - id: desktop_layout
+    description: "Desktop layout stable: no header overlap; CTA visible."
+    viewport:
+      width: 1440
+      height: 900
+    screenshot: "desktop.png"
+    assertions:
+      - "Header bottom is above content top"
+      - "CTA bar is visible and clickable"
+
+  - id: laptop_13_no_overlap
+    description: '13" laptop breakpoint (1280x800): header and content do not overlap.'
+    viewport:
+      width: 1280
+      height: 800
+    screenshot: "laptop13.png"
+    assertions:
+      - "Header bottom is above content top"
+      - "Main content min-height accounts for CTA height"
+
+  - id: mobile_safari_cta_visible
+    description: "Mobile Safari viewport: CTA visible and not covered by sticky footer."
+    viewport:
+      device: "iPhone 12"
+    screenshot: "mobile_safari_cta.png"
+    assertions:
+      - "CTA bar is within viewport"
+      - "Primary button is clickable"
+
+  - id: markdown_dark_mode
+    description: "Dark mode renders Markdown with sanitized HTML."
+    viewport:
+      width: 1024
+      height: 768
+    screenshot: "markdown_dark.png"
+    actions:
+      - "Toggle dark mode"
+    assertions:
+      - "Markdown renders HTML blocks"
+      - "No raw HTML tags visible"
+
+  - id: keyboard_navigation
+    description: "Keyboard-only navigation across steps."
+    viewport:
+      width: 1280
+      height: 800
+    screenshot: "keyboard_nav.png"
+    actions:
+      - "Use ArrowRight/ArrowLeft to navigate steps"
+    assertions:
+      - "Focus moves to step heading upon navigation"
+      - "CTA remains visible during keyboard navigation"
