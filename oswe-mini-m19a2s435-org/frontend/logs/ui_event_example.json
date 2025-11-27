@@ -1,0 +1,7 @@
+{
+  "sessionId": "sess_abcd1234",
+  "requestId": "req_efgh5678",
+  "event": "step_change",
+  "timestamp": "2025-11-27T14:55:00.000Z",
+  "meta": {"viewport": {"width": 390, "height": 844} }
+}

@@ -1,0 +1,28 @@
+---
+- id: desktop-layout
+  title: "Desktop layout — no overlap"
+  viewport: { width: 1400, height: 900 }
+  expected: { headerOverlap: false }
+
+- id: 13inch-layout
+  title: "13\" laptop — no overlap"
+  viewport: { width: 1280, height: 820 }
+  expected: { headerOverlap: false, columns: ["240px","1fr"] }
+
+- id: mobile-safari-cta
+  title: "Mobile Safari — CTA visible"
+  viewport: { width: 390, height: 844, device: "iPhone 12", browser: "webkit" }
+  steps: ["Next", "Next"]
+  expected: { primaryCTAvisible: true }
+
+- id: dark-mode-markdown
+  title: "Markdown rendering in dark mode — sanitized"
+  viewport: { width: 1280, height: 800 }
+  steps: ["Handbook"]
+  expected: { sanitized: true, styled: true }
+
+- id: keyboard-navigation
+  title: "Keyboard only navigation"
+  viewport: { width: 1280, height: 800 }
+  actions: ["ArrowRight","ArrowRight","ArrowRight"]
+  expected: { canSubmit: true }

@@ -1,0 +1,1 @@
+Placeholder. Run scripts/run_ui_suite.sh to capture `desktop_layout.png`

@@ -1,0 +1,28 @@
+[
+  {
+    "sessionId": "sess_9o6gpmru",
+    "requestId": "req_l8q5fg66ps",
+    "event": "step_change",
+    "step": "profile",
+    "timestamp": "2025-11-27T07:23:53.063Z",
+    "meta": {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      }
+    }
+  },
+  {
+    "sessionId": "sess_9o6gpmru",
+    "requestId": "req_s5k5yz44pt",
+    "event": "step_change",
+    "step": "handbook",
+    "timestamp": "2025-11-27T07:23:53.171Z",
+    "meta": {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      }
+    }
+  }
+]

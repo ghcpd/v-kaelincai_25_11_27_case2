@@ -1,0 +1,73 @@
+[
+  {
+    "sessionId": "sess_01kn0p8m",
+    "requestId": "req_8k4l6kxw5p",
+    "event": "step_change",
+    "step": "profile",
+    "timestamp": "2025-11-27T07:52:55.383Z",
+    "meta": {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      }
+    }
+  },
+  {
+    "sessionId": "sess_01kn0p8m",
+    "requestId": "req_f72jbxf3xk",
+    "event": "click_next",
+    "step": "profile",
+    "timestamp": "2025-11-27T07:52:55.460Z",
+    "meta": {}
+  },
+  {
+    "sessionId": "sess_01kn0p8m",
+    "requestId": "req_1z8neouo5u",
+    "event": "step_change",
+    "step": "handbook",
+    "timestamp": "2025-11-27T07:52:55.471Z",
+    "meta": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    }
+  },
+  {
+    "sessionId": "sess_01kn0p8m",
+    "requestId": "req_hkm3j7t3nd",
+    "event": "click_next",
+    "step": "handbook",
+    "timestamp": "2025-11-27T07:52:55.511Z",
+    "meta": {}
+  },
+  {
+    "sessionId": "sess_01kn0p8m",
+    "requestId": "req_3v39lfmpev",
+    "event": "step_change",
+    "step": "review",
+    "timestamp": "2025-11-27T07:52:55.513Z",
+    "meta": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    }
+  },
+  {
+    "sessionId": "sess_01kn0p8m",
+    "requestId": "req_c4842y0nok",
+    "event": "click_next",
+    "step": "review",
+    "timestamp": "2025-11-27T07:52:55.560Z",
+    "meta": {}
+  },
+  {
+    "sessionId": "sess_01kn0p8m",
+    "requestId": "req_vodwo3nnx4",
+    "event": "click_next",
+    "step": "review",
+    "timestamp": "2025-11-27T07:52:55.595Z",
+    "meta": {}
+  }
+]
