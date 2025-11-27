@@ -1,0 +1,2 @@
+Placeholder screenshot: mobile_safari_cta.png
+Run tests to generate actual screenshot at docs/screenshots/mobile_safari_cta.png

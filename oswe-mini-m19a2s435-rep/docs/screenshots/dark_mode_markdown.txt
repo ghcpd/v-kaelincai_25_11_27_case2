@@ -1,0 +1,2 @@
+Placeholder screenshot: dark_mode_markdown.png
+Run tests to generate actual screenshot at docs/screenshots/dark_mode_markdown.png

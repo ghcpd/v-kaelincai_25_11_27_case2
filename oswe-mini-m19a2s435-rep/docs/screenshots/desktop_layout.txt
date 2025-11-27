@@ -1,0 +1,2 @@
+Placeholder screenshot: desktop_layout.png
+Run tests to generate actual screenshot at docs/screenshots/desktop_layout.png

@@ -1,0 +1,9 @@
+{
+  "profile": {
+    "name": "Alex Doe",
+    "email": "alex.doe@example.com"
+  },
+  "handbook": {
+    "content": "# Welcome to the Company\n\nThis handbook includes some HTML: <strong>important</strong> and a script tag that should be sanitized: <script>alert('xss')</script>\n\n- Policy 1\n- Policy 2"
+  }
+}

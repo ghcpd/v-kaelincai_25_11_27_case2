@@ -1,0 +1,43 @@
+# Node / React / Vite
+node_modules/
+.pnp/
+.pnp.*
+
+# Build output
+/dist/
+/build/
+/.vite/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
+
+# Tests & Playwright artifacts
+coverage/
+playwright-report/
+test-results/
+*.trace.zip
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# TypeScript
+*.tsbuildinfo
+
+# Editor & OS junk
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.rs.bk
+
+# Misc
+.cache/
+.tmp/
