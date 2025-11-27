@@ -1,0 +1,1 @@
+Placeholder for dark mode handbook screenshot: run tests to capture `dark_mode_handbook_<session>.png`

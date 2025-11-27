@@ -1,0 +1,11 @@
+{
+  "profile": {
+    "id": "user_001",
+    "name": "Redacted User",
+    "role": "Engineer"
+  },
+  "handbook": {
+    "id": "handbook_1",
+    "content": "### Welcome\nThis is the handbook. <b>Note</b>: in dark mode HTML should not show as raw tags. <script>alert('xss')</script>"
+  }
+}

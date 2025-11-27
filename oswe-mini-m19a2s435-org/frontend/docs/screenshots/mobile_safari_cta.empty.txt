@@ -1,0 +1,1 @@
+Placeholder for mobile safari CTA screenshot: run tests to capture `mobile_safari_cta_<session>.png`

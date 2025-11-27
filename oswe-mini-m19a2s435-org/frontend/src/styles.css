@@ -1,0 +1,44 @@
+html, body, #root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+  font-size: 14px;
+  color: var(--text, #111);
+  background: var(--bg, #fff);
+}
+
+:root {
+  --bg: #f6f8fb;
+  --text: #111;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0f1a;
+    --text: #e6eefb;
+  }
+  .panel {
+    background: #0f1724;
+    color: #e6eefb;
+  }
+  .panel h2, .panel h1, .panel h3, .panel h4 { color: #e6eefb }
+  .panel p, .panel li { color: #cfe0ff }
+  .handbook {
+    color: #cfe0ff;
+  }
+  .header {
+    background: linear-gradient(180deg,#071024,#071028);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .footer {
+    background: linear-gradient(0deg,#071024,rgba(7,16,36,0.9));
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+}
+
+/* ensure mobile safari safe area spacing */
+body {
+  padding-bottom: env(safe-area-inset-bottom);
+}

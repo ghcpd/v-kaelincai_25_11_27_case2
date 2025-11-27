@@ -1,0 +1,73 @@
+[
+  {
+    "sessionId": "sess_pfudsb69",
+    "requestId": "req_tmf1zhztx3",
+    "event": "step_change",
+    "step": "profile",
+    "timestamp": "2025-11-27T07:23:52.176Z",
+    "meta": {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      }
+    }
+  },
+  {
+    "sessionId": "sess_pfudsb69",
+    "requestId": "req_r88idc9ete",
+    "event": "click_next",
+    "step": "profile",
+    "timestamp": "2025-11-27T07:23:52.285Z",
+    "meta": {}
+  },
+  {
+    "sessionId": "sess_pfudsb69",
+    "requestId": "req_w07iejol7j",
+    "event": "step_change",
+    "step": "handbook",
+    "timestamp": "2025-11-27T07:23:52.306Z",
+    "meta": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    }
+  },
+  {
+    "sessionId": "sess_pfudsb69",
+    "requestId": "req_17jq36q2ve",
+    "event": "click_next",
+    "step": "handbook",
+    "timestamp": "2025-11-27T07:23:52.352Z",
+    "meta": {}
+  },
+  {
+    "sessionId": "sess_pfudsb69",
+    "requestId": "req_o0mlavfmgs",
+    "event": "step_change",
+    "step": "review",
+    "timestamp": "2025-11-27T07:23:52.355Z",
+    "meta": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    }
+  },
+  {
+    "sessionId": "sess_pfudsb69",
+    "requestId": "req_3e93ugtaz8",
+    "event": "click_next",
+    "step": "review",
+    "timestamp": "2025-11-27T07:23:52.401Z",
+    "meta": {}
+  },
+  {
+    "sessionId": "sess_pfudsb69",
+    "requestId": "req_4jo5cuimup",
+    "event": "click_next",
+    "step": "review",
+    "timestamp": "2025-11-27T07:23:52.451Z",
+    "meta": {}
+  }
+]
