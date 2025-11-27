@@ -1,0 +1,35 @@
+scenarios:
+  - id: desktop_layout
+    description: Desktop layout – no header overlap; CTA visible
+    viewport: { width: 1920, height: 1080 }
+    steps:
+      - visit: /
+      - assert_header_not_overlap: true
+      - assert_element_visible: 'button:has-text("Next")'
+  - id: laptop_13
+    description: 13" laptop breakpoint – no overlap
+    viewport: { width: 1280, height: 800 }
+    steps:
+      - visit: /
+      - assert_header_not_overlap: true
+  - id: mobile_safari
+    description: Mobile Safari – CTA visible and actionable
+    browser: webkit
+    viewport: { width: 390, height: 844 }
+    steps:
+      - visit: /
+      - click: 'button:has-text("Next")'
+      - click: 'button:has-text("Next")'
+      - assert_element_visible: 'button:has-text("Submit")'
+  - id: dark_mode_markdown
+    description: Dark mode Markdown – sanitized and themed
+    steps:
+      - visit: /
+      - click: 'button:has-text("Toggle theme")'
+      - click: 'button:has-text("Handbook")'
+      - assert_no_raw_html: 'div.markdown'
+  - id: keyboard_nav
+    description: Keyboard-only navigation across steps
+    steps:
+      - visit: /
+      - keyboard: ['Tab','Enter','Tab','Tab','Enter','Tab','Tab','Enter']

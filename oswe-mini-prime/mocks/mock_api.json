@@ -1,0 +1,11 @@
+{
+  "profile": {
+    "id": "p1",
+    "name": "Test Candidate",
+    "email": "tester@example.com"
+  },
+  "handbook": {
+    "id": "hb1",
+    "content": "# Welcome to the Company\n\nThis is our handbook. Below is a safe HTML snippet:\n\n<div style=\"color: red;\">Important notice in red (HTML)</div>\n\nWe use **Markdown** + some harmless HTML."
+  }
+}

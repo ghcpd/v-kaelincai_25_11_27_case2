@@ -1,0 +1,34 @@
+{
+  "headerRect": {
+    "x": 0,
+    "y": 0,
+    "width": 390,
+    "height": 56,
+    "top": 0,
+    "right": 390,
+    "bottom": 56,
+    "left": 0
+  },
+  "contentRect": {
+    "x": 0,
+    "y": 56,
+    "width": 390,
+    "height": 703,
+    "top": 56,
+    "right": 390,
+    "bottom": 759,
+    "left": 0
+  },
+  "headerStyles": {
+    "position": "sticky",
+    "top": "0px",
+    "bottom": "auto",
+    "zIndex": "5"
+  },
+  "contentStyles": {
+    "position": "static",
+    "top": "auto",
+    "bottom": "auto",
+    "zIndex": "auto"
+  }
+}
