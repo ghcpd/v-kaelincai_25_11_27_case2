@@ -1,0 +1,43 @@
+{
+  "role": "WebArea",
+  "name": "Responsive Onboarding UI v2",
+  "children": [
+    {
+      "role": "heading",
+      "name": "Employee Onboarding",
+      "level": 1
+    },
+    {
+      "role": "main",
+      "name": "",
+      "focused": true,
+      "children": [
+        {
+          "role": "heading",
+          "name": "Profile Setup",
+          "level": 2
+        },
+        {
+          "role": "text",
+          "name": "Enter your profile details — mocked from API"
+        },
+        {
+          "role": "text",
+          "name": "Full name"
+        },
+        {
+          "role": "textbox",
+          "name": "Full name"
+        },
+        {
+          "role": "button",
+          "name": "Next"
+        }
+      ]
+    },
+    {
+      "role": "text",
+      "name": "© Company — Onboarding Portal"
+    }
+  ]
+}

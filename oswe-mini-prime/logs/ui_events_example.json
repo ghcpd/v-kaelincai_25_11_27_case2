@@ -1,0 +1,14 @@
+[
+  {
+    "sessionId": "11111111-2222-3333-4444-555555555555",
+    "event": "view",
+    "payload": { "step": 0 },
+    "timestamp": "2025-11-27T12:00:00.000Z"
+  },
+  {
+    "sessionId": "11111111-2222-3333-4444-555555555555",
+    "event": "action",
+    "payload": { "action": "submit_profile", "payload": { "name": "Test Candidate", "email": "t***@example.com" } },
+    "timestamp": "2025-11-27T12:00:10.000Z"
+  }
+]

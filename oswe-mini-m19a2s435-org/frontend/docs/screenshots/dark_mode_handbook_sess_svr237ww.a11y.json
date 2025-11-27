@@ -1,0 +1,64 @@
+{
+  "role": "WebArea",
+  "name": "Onboarding Wizard — Responsive_Onboarding_UI_v2",
+  "children": [
+    {
+      "role": "heading",
+      "name": "Onboarding Wizard",
+      "level": 1
+    },
+    {
+      "role": "main",
+      "name": "",
+      "focused": true,
+      "children": [
+        {
+          "role": "button",
+          "name": "Profile"
+        },
+        {
+          "role": "button",
+          "name": "Handbook"
+        },
+        {
+          "role": "button",
+          "name": "Review"
+        },
+        {
+          "role": "heading",
+          "name": "Handbook",
+          "level": 2
+        },
+        {
+          "role": "heading",
+          "name": "Welcome",
+          "level": 3
+        },
+        {
+          "role": "text",
+          "name": "This is the handbook. "
+        },
+        {
+          "role": "text",
+          "name": "Note"
+        },
+        {
+          "role": "text",
+          "name": ": in dark mode HTML should not show as raw tags. "
+        },
+        {
+          "role": "text",
+          "name": "alert('xss')"
+        }
+      ]
+    },
+    {
+      "role": "button",
+      "name": "Previous Step"
+    },
+    {
+      "role": "button",
+      "name": "Next Step"
+    }
+  ]
+}

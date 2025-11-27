@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UI Event Log Schema",
+  "type": "object",
+  "properties": {
+    "sessionId": { "type": "string" },
+    "requestId": { "type": "string" },
+    "event": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "user": { "type": ["object", "null"], "description": "Redacted user object - do not contain PII" },
+    "meta": { "type": ["object", "null"] }
+  },
+  "required": ["sessionId", "event", "timestamp"]
+}

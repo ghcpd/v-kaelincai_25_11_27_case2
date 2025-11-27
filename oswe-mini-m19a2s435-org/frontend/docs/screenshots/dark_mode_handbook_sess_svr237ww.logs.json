@@ -1,0 +1,28 @@
+[
+  {
+    "sessionId": "sess_svr237ww",
+    "requestId": "req_ottz4tg3yb",
+    "event": "step_change",
+    "step": "profile",
+    "timestamp": "2025-11-27T07:52:55.952Z",
+    "meta": {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      }
+    }
+  },
+  {
+    "sessionId": "sess_svr237ww",
+    "requestId": "req_6cyzk2zfwy",
+    "event": "step_change",
+    "step": "handbook",
+    "timestamp": "2025-11-27T07:52:56.025Z",
+    "meta": {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      }
+    }
+  }
+]

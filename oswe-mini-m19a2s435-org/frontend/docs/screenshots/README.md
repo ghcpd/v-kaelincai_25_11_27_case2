@@ -1,0 +1,1 @@
+Placeholder folder for test screenshots. Running Playwright will populate this folder with screenshots for the five scenarios.

@@ -1,0 +1,37 @@
+{
+  "name": "responsive-onboarding-ui-v2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:esbuild": "node scripts/build_esbuild.js",
+    "preview": "vite preview --port 5173",
+    "serve:dist": "npx http-server ./dist -p 5173 -a 127.0.0.1",
+    "playwright:install": "npx playwright install",
+    "test:ui": "node tests/run_suite.js",
+    "test:ui:playwright": "playwright test --config=playwright.config.ts",
+    "start": "vite"
+  },
+  "dependencies": {
+    "clsx": "1.2.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-markdown": "8.0.0",
+    "rehype-sanitize": "5.0.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.46.0",
+    "@types/node": "20.4.2",
+    "@types/react": "18.2.24",
+    "@types/react-dom": "18.2.9",
+    "@vitejs/plugin-react": "^5.1.1",
+    "@vitejs/plugin-react-swc": "^4.2.2",
+    "axios": "^1.13.2",
+    "esbuild": "^0.19.2",
+    "http-server": "^14.1.1",
+    "prettier": "2.5.1",
+    "typescript": "5.3.3",
+    "vite": "5.0.0"
+  }
+}

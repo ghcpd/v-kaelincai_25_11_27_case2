@@ -1,0 +1,15 @@
+[
+  {
+    "sessionId": "sess_yzr9scun",
+    "requestId": "req_bgva3aq5ar",
+    "event": "step_change",
+    "step": "profile",
+    "timestamp": "2025-11-27T07:52:54.963Z",
+    "meta": {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      }
+    }
+  }
+]

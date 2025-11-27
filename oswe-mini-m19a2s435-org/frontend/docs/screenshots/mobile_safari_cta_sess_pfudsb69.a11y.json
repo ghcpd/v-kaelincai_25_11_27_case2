@@ -1,0 +1,47 @@
+{
+  "role": "WebArea",
+  "name": "Onboarding Wizard — Responsive_Onboarding_UI_v2",
+  "children": [
+    {
+      "role": "heading",
+      "name": "Onboarding Wizard",
+      "level": 1
+    },
+    {
+      "role": "main",
+      "name": "",
+      "children": [
+        {
+          "role": "button",
+          "name": "Profile"
+        },
+        {
+          "role": "button",
+          "name": "Handbook"
+        },
+        {
+          "role": "button",
+          "name": "Review"
+        },
+        {
+          "role": "heading",
+          "name": "Review",
+          "level": 2
+        },
+        {
+          "role": "text",
+          "name": "Review and submit."
+        }
+      ]
+    },
+    {
+      "role": "button",
+      "name": "Previous Step"
+    },
+    {
+      "role": "button",
+      "name": "Next Step",
+      "focused": true
+    }
+  ]
+}

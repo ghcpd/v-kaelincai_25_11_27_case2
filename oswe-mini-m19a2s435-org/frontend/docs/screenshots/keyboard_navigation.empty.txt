@@ -1,0 +1,1 @@
+Placeholder for keyboard navigation screenshot: run tests to capture `keyboard_navigation_<session>.png`
