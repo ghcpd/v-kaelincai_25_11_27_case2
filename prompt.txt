@@ -1,0 +1,35 @@
+• Role
+Frontend lead & QA engineer fixing onboarding UI/UX regressions (layout overlap, hidden CTAs, bad Markdown rendering).
+
+• Title
+Responsive_Onboarding_UI_v2 – UI/UX Consistency & Accessibility
+
+• Description
+Diagnose and fix the onboarding wizard’s UI breakdowns: overlapping header/content on 13" laptops, primary Submit CTA hidden by sticky footer on mobile Safari, and Markdown handbook rendering raw HTML in dark mode. Harden responsive breakpoints, ensure CTAs are always visible, normalize Markdown theming/sanitization, and improve accessibility (ARIA, focus, keyboard navigation). Build and wire a lightweight React frontend to mock APIs, and deliver screenshots for key states.
+
+• AI Output Requirements
+o Map the UI flow (load → render → interact → submit) and pinpoint breakpoints causing overlap/CTA loss/Markdown misrender.
+o Provide root-cause evidence: DOM/CSS snapshots, viewport-specific layout traces, accessibility scans.
+o Recommend and implement fixes: responsive breakpoints, sticky footer adjustments, CTA anchoring, Markdown renderer theming & sanitization, accessibility improvements.
+o Define ≥5 UI integration tests: desktop layout stable; 13" laptop no overlap; mobile Safari viewport CTA visible and clickable; dark mode Markdown styled & sanitized; keyboard-only navigation across steps.
+o Specify structured UI logging schema with unique session/request ID (PII redacted).
+o Outline a single-command UI test harness (e.g., Playwright) that runs all scenarios, captures screenshots, and reports pass/fail + key metrics (viewport coverage, accessibility assertions).
+
+• Deliverables
+o frontend/ — React app with onboarding wizard pages and responsive styles.
+o docs/screenshots/ — redacted screenshots for the five scenarios (desktop, 13" laptop, mobile Safari CTA, dark-mode Markdown, keyboard navigation).
+o logs/ui_event_schema.json — structured UI log schema with session/request ID examples.
+o tests/ui/ui_cases.yaml — five UI scenarios with inputs/expected outcomes.
+o scripts/run_ui_suite.sh — single-command runner (e.g., Playwright) capturing screenshots and summary.
+o package.json — dependencies (React, Markdown renderer, Playwright).
+o setup.sh — environment/bootstrap script (Node install, npm ci).
+o run_tests.sh — wrapper calling scripts/run_ui_suite.sh.
+o mocks/mock_api.json — mock responses for profile/handbook data.
+o tests/run_suite.js — extend to execute the five UI cases.
+
+• Constraints
+o Use React 18 with TypeScript; no external services (local mocks only).
+o UI fixes must be verifiable via the provided tests and screenshots.
+
+• Output Style
+Concise, actionable, with diffs/snippets where helpful, test command/results, and links to captured screenshots.

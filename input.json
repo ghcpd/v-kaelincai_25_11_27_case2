@@ -1,0 +1,30 @@
+{
+  "category": "Bug-related",
+  "subCategory": "UI/UX bug",
+  "projectContext": {
+    "name": "Employee Onboarding Portal",
+    "description": "A multi-step onboarding wizard shows overlapping panels on 13\" laptops and hides the primary Submit CTA on mobile Safari due to a sticky footer. The Markdown-rendered handbook displays raw HTML in dark mode and theme styles are inconsistent across steps.",
+    "currentVersion": "Production lacks responsive breakpoints for key layouts, conditional CTA rendering is brittle, and Markdown styling falls back to defaults in certain themes.",
+    "targetVersion": "Responsive_Onboarding_UI_v2 (consistent responsive layout, always-visible CTAs, robust Markdown rendering, and accessibility fixes)"
+  },
+  "issueStatement": "Users report the onboarding wizard header overlaps the form on mid-size viewports, the Submit button is missing/covered on mobile Safari, and handbook content appears as raw HTML in dark mode. These UI regressions block completion and increase support tickets.",
+  "businessGoals": [
+    "Ensure CTAs remain visible and reachable on all supported viewports (desktop, tablet, mobile Safari).",
+    "Fix layout overlap with proper responsive breakpoints and tested flex/grid behavior.",
+    "Render Markdown consistently (light/dark themes) with safe HTML sanitization and accessible typography.",
+    "Improve accessibility (ARIA, focus order, keyboard navigation) to reduce friction."
+  ],
+  "technicalConstraints": {
+    "language": "TypeScript (React 18)",
+    "stack": [
+      "Vite + React for UI; CSS Modules/Tailwind permitted.",
+      "Use a local mock API for profile and handbook content; no external services.",
+      "Capture visual regressions with Playwright or equivalent."
+    ]
+  },
+  "nonFunctional": [
+    "Provide 5 UI integration test scenarios: desktop layout (no overlap), 13\" laptop breakpoint, mobile Safari viewport with visible CTA, Markdown render in dark mode, and keyboard-only navigation. Runnable via a single script.",
+    "Emit structured UI interaction logs (no PII) with a unique session/request ID.",
+    "Deliver frontend page and redacted screenshots for the five scenarios."
+  ]
+}
