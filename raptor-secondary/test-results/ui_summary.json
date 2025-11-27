@@ -1,0 +1,30 @@
+{
+  "timestamp": "2025-11-27T08:16:59.425Z",
+  "screenshots": [
+    {
+      "id": "desktop_layout",
+      "screenshot": "desktop.png",
+      "exists": true
+    },
+    {
+      "id": "laptop_13_no_overlap",
+      "screenshot": "laptop13.png",
+      "exists": true
+    },
+    {
+      "id": "mobile_safari_cta_visible",
+      "screenshot": "mobile_safari_cta.png",
+      "exists": true
+    },
+    {
+      "id": "markdown_dark_mode",
+      "screenshot": "markdown_dark.png",
+      "exists": true
+    },
+    {
+      "id": "keyboard_navigation",
+      "screenshot": "keyboard_nav.png",
+      "exists": true
+    }
+  ]
+}
